@@ -1,0 +1,180 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.overlay {
+	justify-content: center;
+	align-items: center;
+	/* 열기전 */
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.75);
+	z-index: 9999;
+}
+
+.toc {
+	background-color: #ecfffef0;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	width: 50%;
+	height: 50%;
+	text-align: left; /* 텍스트 가운데 정렬 */
+	border-radius: 2%;
+}
+
+.toc-other {
+	background-color: #ecfffef0;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	max-width: 100%;
+	max-height: 100%;
+	text-align: center; /* 텍스트 가운데 정렬 */
+	border-radius: 2%;
+	overflow: hidden; /* 자식 요소가 부모 요소를 벗어나지 않도록 함 */
+}
+
+.toc-other .video-play {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover; /* 비디오의 비율을 유지하면서 부모 요소에 맞춤 */
+}
+
+.toc-other .pdfViewer {
+	width: 900px;
+	height: 900px;
+	object-fit: cover; /* 비디오의 비율을 유지하면서 부모 요소에 맞춤 */
+}
+
+/* toc-content */
+.toc-content {
+	background-color: #ecfffef0;
+	color: black; border : 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	max-width: 70%;
+	max-height: 70%;
+	text-align: left; /* 텍스트 가운데 정렬 */
+	border-radius: 2%;
+	border: 1px solid #ccc; border-radius : 8px; box-shadow : 0 4px 10px
+	rgba( 0, 0, 0, 0.1); padding : 20px; max-width : 70%; max-height : 70%;
+	text-align : left; /* 텍스트 가운데 정렬 */ border-radius : 2%;
+	overflow: auto; /* 자식 요소가 부모 요소를 벗어나지 않도록 함 */
+}
+
+.toc-content .container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between; /* 양쪽으로 배치 */
+}
+
+.toc-content .container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between; /* 양쪽으로 배치 */
+}
+
+.toc-content .section {
+	width: 48%; /* 각 섹션의 너비를 설정 */
+	margin-bottom: 20px; /* 섹션 간의 간격 */
+}
+
+.toc-content .section.left {
+	order: 1; /* 왼쪽 섹션을 먼저 배치 */
+}
+
+.toc-content .images-left {
+	width: 500px;
+}
+
+.toc-content .section.right {
+	order: 2; /* 오른쪽 섹션을 나중에 배치 */
+}
+
+.toc-content .images-right {
+	width: 70%;
+	height: 70%;
+}
+
+.toc-content .images-center {
+	width: 100%;
+	height: 100%;
+}
+
+.toc-content .container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between; /* 양쪽으로 배치 */
+}
+
+.toc-content .section {
+	width: 48%; /* 각 섹션의 너비를 설정 */
+	margin-bottom: 20px; /* 섹션 간의 간격 */
+}
+
+.toc-content .section.left {
+	order: 1; /* 왼쪽 섹션을 먼저 배치 */
+}
+
+.toc-content .section.right {
+	order: 2; /* 오른쪽 섹션을 나중에 배치 */
+}
+
+/* toc-content */
+
+/* 추가적인 스타일링 */
+.toc-other .image-container img, .toc-other .text-container img {
+	max-width: 100%; /* 이미지가 섹션을 넘지 않도록 설정 */
+	height: auto; /* 비율 유지 */
+}
+
+.toc-other object {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover; /* 비디오의 비율을 유지하면서 부모 요소에 맞춤 */
+}
+
+.toc-other .container {
+	color: black;
+}
+
+.toc h2 {
+	margin-top: 0;
+}
+
+.toc ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.toc li {
+	margin: 10px 0;
+	color: black;
+	list-style-type: disc; /* 기본 목록 표시 (점) */
+	padding-left: 20px; /* 왼쪽 여백 */
+}
+
+.toc a {
+	text-decoration: none;
+	color: #007BFF;
+	transition: color 0.3s;
+}
+
+.toc a:hover {
+	color: #0056b3;
+}

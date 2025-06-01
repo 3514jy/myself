@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>지연의 포트폴리오</title>
+<meta charset="utf-8">
+<meta name="robots"
+	content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/sub.css">
+</head>
+<script type="text/javascript">
+	window.onload = function() {
+	    console.log("화면이 로드되었습니다.");
+	    
+	    document.getElementById('overlay').addEventListener('click', function(event) {
+		    if (event.target === this) {
+		    	clean();
+		        this.style.display = 'none'; // 오버레이 숨기기
+		    }
+		});
+	};
+	// 오버레이를 여는 함수
+    function openOverlay() {
+        document.getElementById('overlay').style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // 스크롤 비활성화
+    }
+
+    // 오버레이를 닫는 함수
+    function closeOverlay() {
+        document.getElementById('overlay').style.display = 'none';
+        document.body.style.overflow = 'auto'; // 스크롤 활성화
+    }
+
+	function clean(){//팝업박스 초기화 css에 필요
+		const infoBox = document.querySelector('#infoBox');
+		console.log('#clean star',infoBox.classList);
+		
+		if(infoBox.innerHTML){
+			
+			while (infoBox.firstChild) {
+                infoBox.removeChild(infoBox.firstChild);
+            }
+			
+			infoBox.className = ''; // 모든 클래스를 제거합니다.
+			infoBox.classList.add('toc'); // 'new-class' 추가
+		}
+		closeOverlay()
+	}
+	
+	function showBox1(){
+		event.preventDefault(); // 기본 링크 동작 방지
+		const overlay = document.getElementById('overlay');
+		const infoBox = document.getElementById('infoBox');
+        const ul = document.createElement('ul');
+
+        const items = [
+        	'여신 모바일 앱,웹 PCWeb 웹개발 (SI) 및 유지보수 (총 2년) 사용언어 [java, javascript, vue.js, Oracle]',
+			'증권 홈페이지 마이그레이션 - [java, jsp, Mysql]',
+			'플랫폼 연계 - 신분증파일암복호화 및 적합성 적정성 개발 [java]',
+			'java,spring 웹앱 개발자 양성 국비교육 이수 [JSP 2.3 & Servlet 3.1 (입문부터 모델 2 MVC 패턴까지), Oracle Database 응용 SW 기초 기술 활용,java, 스프링5 프로그래밍 입문,안드로이드 앱 프로그래밍]',
+			'정보처리기사 자격증 취득'
+		];
+        
+        items.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item; 
+            ul.appendChild(li);
+        });
+
+        infoBox.appendChild(ul);
+        
+		openOverlay() // 오버레이 보이기
+	}
+	
+	function showBox2(){
+		console.log('showBox2');
+		event.preventDefault(); // 기본 링크 동작 방지
+		const overlay = document.getElementById('overlay');
+		const infoBox = document.getElementById('infoBox');
+		
+		infoBox.className = ''; // 모든 클래스를 제거합니다.
+		infoBox.classList.add('toc-other');
+		
+		const objectPdf = document.createElement('object');
+		objectPdf.id = 'pdfViewer';
+		objectPdf.classList.add('pdfViewer');
+		objectPdf.data = '/pdf/itwillPPT.pdf';
+		objectPdf.type = 'application/pdf';
+		
+		const pdfInner = document.createElement('p');
+		pdfInner.innerText = 'PDF 파일을 표시할 수 없습니다.';
+		
+		objectPdf.appendChild(pdfInner);
+		infoBox.appendChild(objectPdf);
+		
+		openOverlay() // 오버레이 보이기
+	}
+	
+	function showBox3(){
+		console.log('showBox3');
+		event.preventDefault(); // 기본 링크 동작 방지
+		const overlay = document.getElementById('overlay');
+		const infoBox = document.getElementById('infoBox');
+		
+		infoBox.classList.remove('toc');
+		infoBox.classList.add('toc-content');
+		
+		// 다른 경로에 있는 HTML 파일을 불러오기
+        fetch('content.html') // 파일 경로를 지정하세요
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('네트워크 응답이 좋지 않습니다.');
+            }
+            return response.text(); // 응답을 텍스트로 변환
+        })
+        .then(htmlContent => {
+            infoBox.innerHTML = htmlContent;
+        })
+        .catch(error => {
+            console.error('문제가 발생했습니다:', error);
+        });
+		
+		openOverlay() // 오버레이 보이기
+	}
+	
+	function showBox4(){//후기영상
+		console.log('showBox4');
+		event.preventDefault(); // 기본 링크 동작 방지
+		const overlay = document.getElementById('overlay');
+		const infoBox = document.getElementById('infoBox');
+		
+		infoBox.className = ''; // 모든 클래스를 제거합니다.
+		infoBox.classList.add('toc-other');
+		
+        const diVideo = document.createElement('div');
+        
+        diVideo.id = 'videoContainer';
+        
+        const video = document.createElement('video');
+        video.classList.add('video-play');
+        video.controls = true;
+		
+        const source = document.createElement('source');
+        source.src = '/video/reviewVideo.mp4'; // 실제 비디오 파일 경로로 변경
+        source.type = 'video/mp4';
+        
+        video.appendChild(source);
+        infoBox.appendChild(video);
+        overlay.appendChild(infoBox);
+
+		openOverlay() // 오버레이 보이기
+	}
+	
+	function showBox5(){
+		console.log('showBox5');
+		event.preventDefault(); // 기본 링크 동작 방지
+		const overlay = document.getElementById('overlay');
+		openOverlay() // 오버레이 보이기
+	}
+	
+	function showBox6(){
+		console.log('showBox6');
+		event.preventDefault(); // 기본 링크 동작 방지
+		window.open('https://spring-judo-eb7.notion.site/91f3a4fb2cf345579124327f2aee83c3', '_blank');
+	}
+	
+	function showBox7(){
+		console.log('showBox7');
+		
+		event.preventDefault(); // 기본 링크 동작 방지
+		const overlay = document.getElementById('overlay');
+		const infoBox = document.getElementById('infoBox');
+		
+		infoBox.className = ''; // 모든 클래스를 제거합니다.
+		infoBox.classList.add('toc-content');
+		
+		infoBox.innerHTML = `
+        	<ul><li>kotlin : 안드로이드 교육 공부중 [UDEMY 온라인 강의]</li></ul>
+            <p>학습 중인 교육</p>
+            <img src="images/thumbs/androidMain.jpg" class="images-center" alt="학습 중인 교육">
+            <p>학습 중인 교육 코드</p>
+            <img src="images/thumbs/androidCode.jpg" class="images-center" alt="학습 중인 교육 코드">
+            <ul><li>리눅스 커널 및 로그 분석</li></ul>
+            <ul><li>독학사 컴퓨턱 공학</li></ul>
+        `;
+        
+		openOverlay() // 오버레이 보이기
+	}
+	
+</script>
+<body>
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<header id="header">
+			<span class="avatar">
+			<img src="images/main/00.jpg" alt="지연의 메인이미지사진" width="173" height="178"></span>
+			<h1 class="highlighted-title">
+				<strong>지금부터 저에 대해 한번 들여다 보실까요?</strong>
+			</h1>
+				
+			<ul class="icons">
+				<li id="" onclick="location.href='https://github.com/3514jy';">
+					<img src="images/main/git.jpg" alt="깃허브" class="icon style2">
+				</li>
+				<li id="" onclick="location.href='https://blog.naver.com/wldus3514';">
+					<img src="images/main/blog.jpg" alt="블로그" class="icon style2">
+				</li>
+<!-- 				<li id="" onclick="location.href='mailto:wldus3514@naver.com';"> -->
+<!-- 					<img src="images/main/nMail.jpg" alt="네이버메일" class="icon style2"> -->
+<!-- 				</li> -->
+			</ul>
+		</header>
+		<!-- Main -->
+		<section id="main">
+			<!-- Thumbnails -->
+			<section class="thumbnails">
+				<div>
+					<a href="#" onclick="showBox1(event)" role="button" id="showBox1" aria-label="링크 클릭시 경험한 프로젝트 설명박스 열림">
+						<img src="images/main/01.jpg" alt="경험한 프로젝트" >
+						<h3>경험한 프로젝트</h3>
+					</a>
+					<a href="#" onclick="showBox2(event)" id="showBox2" role="button" aria-label="링크 클릭시 IT학원 프로젝트 설명박스 열림">
+						<img src="images/main/05.jpg" alt="IT학원 프로젝트" >
+						<h3>IT학원 프로젝트</h3>
+					</a>
+				</div>
+				<div>
+					<a href="#" onclick="showBox3(event)" id="showBox3" role="button" aria-label="링크 클릭시 나의 마인드 설명박스 열림">
+						<img src="images/main/02.jpg" alt="나의 마인드" >
+						<h3>나의 마인드</h3>
+					</a>
+					<a href="#" onclick="showBox4(event)" id="showBox4" role="button" aria-label="링크 클릭시 지연에 대한 후기 영상 열림">
+						<img src="images/main/04.png" alt="지연에 대한 후기 영상" >
+						<h3>지연에 대한 후기 영상</h3>
+					</a>
+					<!-- <a href="#" onclick="showBox5(event)" id="showBox5" role="button" aria-label="링크 클릭시 끊임없는 학구열 열림">
+						<img src="images/main/06.jpg" alt="끊임없는 학구열" >
+						<h3>끊임없는 학구열</h3>
+					</a> -->
+				</div>
+				<div>
+					<a href="#" onclick="showBox6(event)" id="showBox6" role="button" aria-label="링크 클릭시  학습 저장소 사이트이동">
+						<img src="images/main/03.jpg" alt="학습 저장소" >
+						<h3>학습 저장소</h3>
+					</a>
+					<a href="#" onclick="showBox7(event)" id="showBox7" role="button" aria-label="링크 클릭시  개발공부 현황 열림">
+						<img src="images/main/06.jpg" alt="개발공부 현황">
+						<h3>개발공부 현황</h3>
+					</a>
+				</div>
+			</section>
+			<!-- 열림팝업 -->
+			<div class="overlay" id="overlay">
+		        <div class="toc" id="infoBox">
+		        </div>
+		    </div>
+		</section>
+		
+		<!-- Footer -->
+	</div>
+	<div class="copyright">
+		Made in jiyeon
+	</div>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.poptrox.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>

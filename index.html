@@ -85,7 +85,7 @@
 		const objectPdf = document.createElement('object');
 		objectPdf.id = 'pdfViewer';
 		objectPdf.classList.add('pdfViewer');
-		objectPdf.data = '/pdf/itwillPPT.pdf';
+		objectPdf.data = 'static/pdf/itwillPPT.pdf';
 		objectPdf.type = 'application/pdf';
 		
 		const pdfInner = document.createElement('p');
@@ -142,7 +142,7 @@
         video.controls = true;
 		
         const source = document.createElement('source');
-        source.src = '/video/reviewVideo.mp4'; // 실제 비디오 파일 경로로 변경
+        source.src = 'static/video/reviewVideo.mp4'; // 실제 비디오 파일 경로로 변경
         source.type = 'video/mp4';
         
         video.appendChild(source);

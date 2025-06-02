@@ -150,6 +150,11 @@ body {
     height: 60vh; /* 모바일에서 더 낮게 */
     padding: 10px;
   }
+
+  .toc-other .pdfViewer {
+     height: 80vh; /* 충분히 높게 */
+     overflow-y: scroll;
+  }
   
    .toc-other .pdfViewer {
     height: 60vh; /* 모바일에서 조금 더 낮게 */

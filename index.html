@@ -18,7 +18,9 @@
 
 	    const isIOS = /iphone|ipad|ipod/.test(ua);
 	    const isSafari = /^((?!chrome|android).)*safari/.test(ua);
-
+            alert('ua',ua);
+	alert('isIOS',isIOS);
+		alert('isSafari',isSafari);
 	    if (isIOS && isSafari) {
 		    
 	      const currentUrl = window.location.href;

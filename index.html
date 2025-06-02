@@ -12,7 +12,26 @@
 <script type="text/javascript">
 	window.onload = function() {
 	    console.log("화면이 로드되었습니다.");
-	    
+
+	    //아이폰사파리 브라우저 동작이 원활하지 않아 이동
+	    const ua = navigator.userAgent.toLowerCase();
+
+	    const isIOS = /iphone|ipad|ipod/.test(ua);
+	    const isSafari = /^((?!chrome|android).)*safari/.test(ua);
+	
+	    if (isIOS && isSafari) {
+	      const currentUrl = window.location.href;
+	      const chromeUrl = 'googlechromes://' + currentUrl.replace(/^https?:\/\//, '');
+	
+	      // Chrome 설치 여부는 감지 불가 → 자동 이동 시도
+	      window.location = chromeUrl;
+	
+	      // 예외: Safari로 다시 fallback 유도 (Chrome이 없을 경우 대비)
+	      setTimeout(() => {
+	        alert('Chrome으로 이동하지 못했습니다. 크롬이 설치되어 있는지 확인해주세요.');
+	      }, 1500);
+	    }
+	
 	    document.getElementById('overlay').addEventListener('click', function(event) {
 		    if (event.target === this) {
 		    	clean();

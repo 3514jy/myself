@@ -2244,9 +2244,10 @@ body.is-covered #wrapper {
 }
 
 #header .avatar img {
-	border-radius: 100%;
-	display: block;
-	width: 10em;
+    border-radius: 100%;
+    display: block;
+    width: 10em;
+    height: auto;
 }
 
 @media screen and (max-width: 1280px) {

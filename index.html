@@ -18,8 +18,9 @@
 
 	    const isIOS = /iphone|ipad|ipod/.test(ua);
 	    const isSafari = /^((?!chrome|android).)*safari/.test(ua);
-	
+
 	    if (isIOS && isSafari) {
+		    
 	      const currentUrl = window.location.href;
 	      const chromeUrl = 'googlechromes://' + currentUrl.replace(/^https?:\/\//, '');
 	

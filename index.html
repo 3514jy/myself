@@ -27,10 +27,8 @@
 	      // Chrome 설치 여부는 감지 불가 → 자동 이동 시도
 	      window.location = chromeUrl;
 	
-	      // 예외: Safari로 다시 fallback 유도 (Chrome이 없을 경우 대비)
-	      setTimeout(() => {
-	        alert('Chrome으로 이동하지 못했습니다. 크롬이 설치되어 있는지 확인해주세요.');
-	      }, 1500);
+	      // 예외: Safari로 다시 fallback 유도 필요(Chrome이 없을 경우 대비)
+	     
 	    }
 	
 	    document.getElementById('overlay').addEventListener('click', function(event) {
